@@ -23,7 +23,7 @@ module Players
     def move(board)
       move_number = 0
 
-      if find_offsense_spot(board)
+      if find_offense_spot(board)
         puts "I'ts time!"
         move_number = find_offense_spot(board)
       elsif find_defense_spot(board)
