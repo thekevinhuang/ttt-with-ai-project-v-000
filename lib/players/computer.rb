@@ -23,12 +23,12 @@ module Players
     def move(board)
       move_number = 0
 
-      if find_defense_spot(board)
-        puts "Defensing"
-        move_number = find_defense_spot(board)
-      elsif find_offense_spot(board)
-        puts "It's time!"
+      if find_offsense_spot(board)
+        puts "I'ts time!"
         move_number = find_offense_spot(board)
+      elsif find_defense_spot(board)
+        puts "Defending"
+        move_number = find_defense_spot(board)
       else
         puts "Finding best"
         move_number = find_best_spot(board)
@@ -66,14 +66,7 @@ module Players
       else
 
         non_player_combos = win_not_include(@player)
-        #remove all combos that at least one of the items in win_combo have a player token
-        #WIN_COMBINATIONS.each do |combo|
-        #  @player.each do |player_ind|
-        #    if !combo.include?(player_ind)
-        #       non_player_combos << combo
-        #    end
-        #  end
-        #end
+
 
         #for all the remaining possible opponent wins, check that the @opponent contains two of the elements of combo
         non_player_combos.each do |combo|
